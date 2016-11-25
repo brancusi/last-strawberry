@@ -13,7 +13,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     return Ember.RSVP.all([
       this.store.findAll("item"),
       this.store.findAll("price-tier"),
-      this.store.query("company", {"filter[active_state]":activeState.ACTIVE}),
+      this.store.query("company", {"filter[active_state]":activeState.ACTIVE})
     ]);
 	},
 

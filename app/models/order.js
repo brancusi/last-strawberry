@@ -8,8 +8,9 @@ import {
   hasMany
 } from "ember-data/relationships";
 
-import OrderStates from "last-strawberry/constants/order-states";
+import PublishedState from "last-strawberry/constants/published-states";
 import XeroStates from "last-strawberry/constants/xero-states";
+import SyncStates from "last-strawberry/constants/sync-states";
 
 const {
   equal,
@@ -26,8 +27,9 @@ export default Model.extend(LocationHashable, {
   orderType:                    attr("string", {defaultValue: SALES_ORDER}),
   deliveryDate:                 attr("string"),
   shipping:                     attr("number"),
-  orderState:                   attr("string", {defaultValue: OrderStates.DRAFT}),
-  xeroState:                    attr("string", {defaultValue: XeroStates.PENDING}),
+  xeroFinancialRecordState:     attr("string", {defaultValue: XeroStates.DRAFT}),
+  syncState:                    attr("string", {defaultValue: SyncStates.PENDING}),
+  publishedState:               attr("string", {defaultValue: PublishedState.UNPUBLISHED}),
   note:                         attr("string"),
 
   location:                     belongsTo("location"),
@@ -40,10 +42,13 @@ export default Model.extend(LocationHashable, {
   isSalesOrder:                 equal("orderType", SALES_ORDER),
   isPurchaseOrder:              equal("orderType", PURCHASE_ORDER),
 
-  isDraft:                      equal("orderState", OrderStates.DRAFT),
-  isApproved:                   equal("orderState", OrderStates.APPROVED),
+  isDraft:                      equal("publishedState", PublishedState.UNPUBLISHED),
+  isApproved:                   equal("publishedState", PublishedState.PUBLISHED),
 
-  isVoided:                     equal("xeroState", XeroStates.VOIDED),
+  isSynced:                     equal("syncState", SyncStates.SYNCED),
+
+  isVoided:                     equal("xeroFinancialRecordState", XeroStates.VOIDED),
+  isDeleted:                    equal("xeroFinancialRecordState", XeroStates.DELETED),
 
   isValid:                      notEmpty("orderItems"),
 

@@ -27,7 +27,7 @@ export default Ember.Component.extend({
     return val === "true" || val === true;
   },
 
-  @computed("orders.@each.{orderState,isDeleted,isVoided}", "query", "includeApprovedBool", "includeDraftBool")
+  @computed("orders.@each.{publishedState,isDeleted,isVoided}", "query", "includeApprovedBool", "includeDraftBool")
   filterOrders(orders, query, includeApprovedBool, includeDraftBool){
     return orders
       .filter(order => {
