@@ -1,4 +1,4 @@
 export default {
-  PENDING: "pending",
+  PENDING: "pending_sync",
   SYNCED: "synced"
 }

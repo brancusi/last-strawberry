@@ -15,7 +15,10 @@ import SyncStates from "last-strawberry/constants/sync-states";
 const {
   equal,
   alias,
-  notEmpty
+  notEmpty,
+  gt,
+  and,
+  not
 } = Ember.computed;
 
 const SALES_ORDER = "sales-order";
@@ -42,15 +45,21 @@ export default Model.extend(LocationHashable, {
   isSalesOrder:                 equal("orderType", SALES_ORDER),
   isPurchaseOrder:              equal("orderType", PURCHASE_ORDER),
 
-  isDraft:                      equal("publishedState", PublishedState.UNPUBLISHED),
-  isApproved:                   equal("publishedState", PublishedState.PUBLISHED),
+  isUnpublished:                equal("publishedState", PublishedState.UNPUBLISHED),
+  isPublished:                  equal("publishedState", PublishedState.PUBLISHED),
 
   isSynced:                     equal("syncState", SyncStates.SYNCED),
 
   isVoided:                     equal("xeroFinancialRecordState", XeroStates.VOIDED),
   isDeleted:                    equal("xeroFinancialRecordState", XeroStates.DELETED),
+  notVoided:                    not("isVoided"),
+  notDeleted:                   not("isDeleted"),
 
-  isValid:                      notEmpty("orderItems"),
+  hasQuantity:                  gt("totalQuantity", 0),
+
+  hasXeroId:                    notEmpty("xeroId"),
+
+  isValid:                      and("hasQuantity", "notVoided", "isDeleted"),
 
   @computed("orderItems.@each.{hasDirtyAttributes}", "hasDirtyAttributes")
   notifiable(orderItems) {

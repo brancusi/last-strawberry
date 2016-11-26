@@ -96,7 +96,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 		},
 
 		toggleOrderState(model) {
-			const updatedState = model.get("isDraft") ? PublishedStates.PUBLISHED : PublishedStates.UNPUBLISHED;
+			const updatedState = model.get("isUnpublished") ? PublishedStates.PUBLISHED : PublishedStates.UNPUBLISHED;
 			model.set("publishedState", updatedState);
 
 			model.save()
