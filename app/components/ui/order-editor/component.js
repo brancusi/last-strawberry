@@ -73,8 +73,8 @@ export default Ember.Component.extend({
       this.set("showCreateItemModal", false);
     },
 
-    noteChanged(e) {
-      this.get("model").set("note", e.target.value);
+    propChanged(key, e) {
+      this.get("model").set(key, e.target.value);
     }
   }
 });

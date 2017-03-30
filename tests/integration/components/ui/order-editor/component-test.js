@@ -50,8 +50,8 @@ test("it displays a list of order-items", function(assert) {
   assert.equal(this.$(".debug_sections_sales-orders_order-item-editor").length, model.get("orderItems.length"));
 });
 
-test("it displays note of order", function(assert) {
-  assert.equal(this.$("textarea.note").val(), model.get("note"));
+test("it displays comment of order", function(assert) {
+  assert.equal(this.$("textarea.comment").val(), model.get("comment"));
 });
 
 test("it displays delivery date", function(assert) {
@@ -60,11 +60,13 @@ test("it displays delivery date", function(assert) {
 
 test("it should enable print button when order isValid", function(assert) {
   this.set("model", buildValidSalesOrder());
+  debugger;
   assert.ok(!orderEditorPO.printDisabled);
 });
 
 test("it should enable send button when order isValid", function(assert) {
   this.set("model", buildValidSalesOrder());
+  debugger;
   assert.ok(!orderEditorPO.sendDisabled);
 });
 
