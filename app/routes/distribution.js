@@ -91,7 +91,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     const url = `https://api.mapbox.com/directions/v5/mapbox/driving/${query}?geometries=polyline&access_token=${apiToken}`;
     const result = await Ember.$.ajax({ url, type:"GET" });
 
-
     if(Ember.isPresent(result.routes)){
       routePlan.set("polyline", decodePolyline(result.routes[0].geometry));
     }
