@@ -19,9 +19,9 @@
       <div class="row baseline deliveryDateContainer">
         <span class="instruction">Delivery date:</span>
         {{pikaday-input
-          value=model.deliveryDate
+          value=(date model.deliveryDate)
           format="ddd MM-DD-YYYY"
-          onSelected=updateDeliveryDate
+          onSelection=updateDeliveryDate
           class="deliveryDate"}}
       </div>
 

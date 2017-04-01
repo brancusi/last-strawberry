@@ -2,7 +2,6 @@ import { moduleForComponent, test } from "ember-qunit";
 import hbs from "htmlbars-inline-precompile";
 import { make, manualSetup } from "ember-data-factory-guy";
 import decorateComponentClass from "last-strawberry/tests/helpers/decorate-component-class";
-import { formatFullDate } from "last-strawberry/utils/date";
 import { orderEditorPO } from "last-strawberry/tests/pages/sales-orders-show";
 
 import {
@@ -54,19 +53,13 @@ test("it displays comment of order", function(assert) {
   assert.equal(this.$("textarea.comment").val(), model.get("comment"));
 });
 
-test("it displays delivery date", function(assert) {
-  assert.equal(this.$(".deliveryDate").val(), formatFullDate(model.get("deliveryDate")));
-});
-
 test("it should enable print button when order isValid", function(assert) {
   this.set("model", buildValidSalesOrder());
-  debugger;
   assert.ok(!orderEditorPO.printDisabled);
 });
 
 test("it should enable send button when order isValid", function(assert) {
   this.set("model", buildValidSalesOrder());
-  debugger;
   assert.ok(!orderEditorPO.sendDisabled);
 });
 

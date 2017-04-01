@@ -8,7 +8,7 @@ export default function decorateComponentClass() {
       const cssName = debugName.split('/').join('_');
       const newName = `debug_${cssName}`;
       if(!this.classNames.includes(newName)) {
-        this.classNames.pushObject(newName);
+        this.classNames = this.classNames.concat(newName);
       }
     }
   });

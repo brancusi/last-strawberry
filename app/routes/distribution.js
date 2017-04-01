@@ -50,12 +50,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     controller.set("users", this.store.peekAll("user"));
 
     const routePlans = this.store.peekAll("route-plan");
-    routePlans.forEach(rp => {
-      // Set default value for not showing error
-      rp.set("polyline", decodePolyline(""));
-
-      this.setPolyline(rp);
-    });
+    routePlans.forEach(rp => this.setPolyline(rp));
   },
 
   model (params) {
@@ -95,6 +90,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     const apiToken = this.get("session.data.authenticated.mapbox_api_token");
     const url = `https://api.mapbox.com/directions/v5/mapbox/driving/${query}?geometries=polyline&access_token=${apiToken}`;
     const result = await Ember.$.ajax({ url, type:"GET" });
+
 
     if(Ember.isPresent(result.routes)){
       routePlan.set("polyline", decodePolyline(result.routes[0].geometry));

@@ -7,9 +7,7 @@
 
   {{#each routePlans as |rp i|}}
     {{#if rp.polyline}}
-      {{geojson-layer
-          geoJSON=rp.polyline
-          color=(get COLOR_SCHEMES (concat i ".backgroundColor"))}}
+      {{geojson-layer geoJSON=rp.polyline}}
     {{/if}}
   {{/each}}
 
