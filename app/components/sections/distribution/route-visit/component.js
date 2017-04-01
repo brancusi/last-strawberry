@@ -60,7 +60,7 @@ export default Ember.Component.extend({
   actions: {
     removeRouteVisit() {
       if(this.get("removeRouteVisit")) {
-        this.get("removeRouteVisit")(this.get("model"));
+        this.get("removeRouteVisit")(this.get("model"), this.get("model.routePlan"));
       }
     }
   }

@@ -81,14 +81,8 @@ export default Ember.Component.extend({
   },
 
   addDragulaListeners() {
-     this.drake.on("cloned", (item) => {
-       this.dragSubject.onNext($(item));
-     });
-
-    this.drake.on("over", (node, container) => {
-      this.dragOverSubject.onNext(container);
-    });
-
+    this.drake.on("cloned", item => this.dragSubject.onNext($(item)));
+    this.drake.on("over", (node, container) => this.dragOverSubject.onNext(container));
     this.drake.on("cancel", () => this.dropSubject.onNext())
 
     this.drake.on("drop", (dragNode, dropNode, fromNode, sibNode) => {
@@ -97,9 +91,9 @@ export default Ember.Component.extend({
 
       const ot = this.createRouteTransform(dragNode, dropNode, fromNode, sibNode);
 
-      Ember.run.schedule("afterRender", this, () => dragNode.parentElement.removeChild(dragNode));
+      this.get("onRouteVisitUpdate")(ot);
 
-      this.get("onRouteVisitUpdate")(ot.routeVisit, ot.toRoutePlan, ot.position);
+      dragNode.parentElement.removeChild(dragNode)
     });
   },
 
@@ -111,16 +105,16 @@ export default Ember.Component.extend({
     const nextRouteVisit = this.routeVisitWithId(nextRouteVisitId);
     const fromRoutePlan = this.ddMapping.get(fromPlanId);
     const toRoutePlan = this.ddMapping.get(toPlanId);
-    const sortedRouteVisits = toRoutePlan.get("routeVisits").sortBy("position");
-    const lastPosition = sortedRouteVisits.get("lastObject.position") || 10;
+    const routeVisits = toRoutePlan.get("sortedActiveRouteVisits");
+    const lastPosition = routeVisits.get("lastObject.position") || 10;
     let position = lastPosition + 10;
 
     if(nextRouteVisit) {
-      const index = sortedRouteVisits.indexOf(nextRouteVisit);
+      const index = routeVisits.indexOf(nextRouteVisit);
       let startRange = nextRouteVisit.get("position");
       let endRange = 0;
 
-      const previousRouteVisit = sortedRouteVisits.objectAt(index-1);
+      const previousRouteVisit = routeVisits.objectAt(index-1);
       if(previousRouteVisit) {
         endRange = previousRouteVisit.get("position");
       }

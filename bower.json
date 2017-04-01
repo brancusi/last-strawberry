@@ -5,7 +5,7 @@
     "pikaday": "^1.5.1",
     "moment": ">= 2.8.0",
     "moment-timezone": ">= 0.1.0",
-    "dragula.js": "~3.5.4",
+    "dragula.js": "3.7.2",
     "string": "~3.3.1",
     "ceibo": "1.1.0",
     "Faker": "~3.0.0",
@@ -22,7 +22,8 @@
     "ramda": "^0.22.0",
     "polyline": "^0.2.0",
     "localforage": "^1.4.3",
-    "ember": "2.8.0"
+    "ember": "2.8.0",
+    "leaflet": "^1.0.0"
   },
   "resolutions": {
     "jquery-mockjax": "2.2.1",

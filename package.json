@@ -54,7 +54,7 @@
     "ember-data-factory-guy": "2.10.1",
     "ember-export-application-global": "^1.0.5",
     "ember-git-version": "0.1.1",
-    "ember-leaflet": "3.0.11",
+    "ember-leaflet": "^3.0.9",
     "ember-light-table": "1.0.1",
     "ember-load-initializers": "^0.6.0",
     "ember-modal-dialog": "0.9.1",
