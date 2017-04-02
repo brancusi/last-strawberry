@@ -76,5 +76,9 @@
     "moment": "2.11.2",
     "moment-timezone": "0.5.0",
     "node-sass": "^3.8.0"
-  }
+  },
+  "engines": {
+    "node": ">= 4"
+  },
+  "private": true
 }
