@@ -10,7 +10,7 @@
   "scripts": {
     "build": "ember build -prod",
     "start": "ember server",
-    "test": "ember exam -s --split=4 --parallel"
+    "test": "ember test"
   },
   "repository": "",
   "engines": {
@@ -54,7 +54,6 @@
     "ember-data-factory-guy": "^2.12.3",
     "ember-exam": "^0.6.1",
     "ember-export-application-global": "^1.0.5",
-    "ember-git-version": "0.1.1",
     "ember-leaflet": "^3.0.9",
     "ember-light-table": "1.0.1",
     "ember-load-initializers": "^0.6.0",
