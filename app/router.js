@@ -36,11 +36,17 @@ Router.map(function() {
       this.route("location", {path:"/locations/:location_id"});
     });
   });
+
   this.route("route-plan-blueprints");
   this.route("users");
   this.route("reports", function() {
     this.route("customer-financials");
     this.route('product-financials');
+  });
+
+  this.route('standing-orders', function() {
+    this.route('location', {path:"/location/:id"});
+    this.route('order-template', {path:"/order-template/:id"});
   });
 });
 

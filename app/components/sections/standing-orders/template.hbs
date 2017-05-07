@@ -1,0 +1,10 @@
+<div class="row nav">
+  {{lists/grouped-list
+      childKey='name'
+      highlightedItem=selectedLocation
+      itemClicked=selectLocation
+      model=groupedLocations}}
+</div>
+<div class="content">
+  {{outlet}}
+</div>
