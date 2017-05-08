@@ -1,0 +1,41 @@
+<div class="col">
+  <span>{{model.location.company.name}}</span>
+  <span>{{model.location.name}}</span>
+</div>
+
+{{pikaday-input
+    value=(date model.startDate)
+    format="ddd MM-DD-YYYY"
+    onSelection=(pipe (action (mut model.startDate)) (action saveModel model))
+    class="startDate"}}
+
+{{one-way-input model.frequency
+    class='quantity'
+    onblur=(action saveModel model)
+    update=(action (mut model.frequency))}}
+
+{{ui/day-of-week-selector
+    class="visitDays"
+    model=model.orderTemplateDays
+    change=(action onDaysChanged model)}}
+
+<div class="col">
+  {{#each validLineItems as |lineItem index|}}
+    {{ui/order-template-editor/order-template-item-editor
+        model=lineItem
+        save=saveModel
+        delete=deleteLineItem
+        index=index}}
+  {{/each}}
+</div>
+
+<div class="addOrderItemContainer">
+  {{#power-select
+      placeholder="Add item"
+      searchField="name"
+      options=activeProducts
+      onchange=createLineItem
+      as |item|}}
+        {{item.name}}
+  {{/power-select}}
+</div>

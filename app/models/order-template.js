@@ -7,5 +7,6 @@ export default DS.Model.extend({
   orderTemplateItems: hasMany('order-template-item'),
   orderTemplateDays:  hasMany('order-template-day'),
 
-  startDate:          attr('date')
+  startDate:          attr('date'),
+  frequency:          attr('number', {defaultValue: 1})
 });

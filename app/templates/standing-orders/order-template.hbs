@@ -1,1 +1,7 @@
-Order Template
+{{ui/order-template-editor
+    model=model
+    items=items
+    onDaysChanged=(route-action 'onDaysChanged')
+    saveModel=(route-action 'saveModel')
+    deleteLineItem=(route-action 'deleteLineItem')
+    createLineItem=(route-action 'createLineItem' model)}}
