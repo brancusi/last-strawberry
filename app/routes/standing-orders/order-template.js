@@ -11,7 +11,7 @@ const MODEL_INCLUDES = [
 ];
 
 export default Ember.Route.extend({
-  setupController(controller, model) {
+  setupController(controller) {
     controller.set("items", this.store.peekAll("item"));
 
     this._super(...arguments);
@@ -42,12 +42,24 @@ export default Ember.Route.extend({
       match.save();
     },
 
+		dateSelected(model, date) {
+			console.log(moment(date).format("YYYY-MM-DD"));
+			model.set('startDate', moment(date).format("YYYY-MM-DD"));
+			model.save();
+		},
+
     saveModel(model) {
       model.save();
     },
 
     deleteLineItem(model) {
       model.destroyRecord();
-    }
+    },
+
+		async deleteOrderTemplate(model) {
+			const locationId = await model.get('location.id');
+			await model.destroyRecord();
+			this.transitionTo('standing-orders.location', locationId);
+		}
 	}
 });

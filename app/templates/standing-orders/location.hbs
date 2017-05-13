@@ -1,4 +1,4 @@
-<button type="button" name="button" {{action (route-action 'createOrderTemplate')}}>New</button>
-{{#each model.orderTemplates as |orderTemplate|}}
-  {{orderTemplate}}
-{{/each}}
+{{sections/standing-orders/location
+    model=model
+    selectOrderTemplate=(route-action "selectOrderTemplate")
+    createOrderTemplate=(route-action "createOrderTemplate")}}

@@ -1,133 +1,76 @@
-& {
-  background: $medium-grey;
-  min-width: 35em;
-  max-width: 35em;
-}
-
-a {
-  text-decoration: underline;
-}
-
-.toolbar {
-  justify-content: flex-end;
+.navContainer {
+  background: $dark-orange;
+  padding: 1em;
+  justify-content: space-between;
 }
 
 .contentContainer {
-  padding: 1em;
-}
-
-.syncedMessage {
-  background: $dark-grey;
-  padding: 0.5em;
-  color: $off-white;
-
-  a {
-    color: $off-white;
-  }
-}
-
-.syncedTitle {
-  margin-right: 0.5em;
+  padding: 2em;
 }
 
 .company {
-  font-size: 1.7em;
-  font-weight: bold;
-  color: $dark-grey;
+  font-size: 2em;
+  margin-right: 0.5em;
 }
 
-.locationInfo {
-  font-size: 1.2em;
-  color: $dark-grey;
-}
-
-.orderInfo {
-  align-items: baseline;
-  margin: 1.5em 0 1em 0;
-}
-
-.comment {
-  max-width: 90%;
-  margin: 1em;
-  height: 20em;
-}
-
-.title {
+.location {
   font-size: 1.4em;
-  font-weight: bold;
-  color: $dark-grey;
-  padding-right: 1em;
-  &::after {
-    content: ':';
-    font-weight: normal;
+}
+
+.startDateContainer {
+  margin: 0.5em 0;
+  align-items: baseline;
+  font-size: 1.6em;
+
+  .info {
+    margin-right: 1em;
+  }
+
+  input.datePicker {
+    border: none;
+    font-family: 'Open Sans', serif;
+    font-weight: 400;
+    text-decoration: underline;
   }
 }
 
-.orderNumber {
-  font-size: 1.2em;
-  color: $dark-grey;
+.frequencyContainer {
+  margin-bottom: 0.5em;
+  align-items: baseline;
+  font-size: 1.6em;
+
+  .quantity {
+    margin: 0 1em;
+    width: 2em;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: none;
+    border-bottom: 1px dashed;
+    font-family: 'Open Sans', serif;
+    font-weight: 400;
+    text-align: center;
+  }
+}
+
+.sampleDatesContainer {
+  background: $light-blue;
+  align-items: flex-start;
+  padding: 1em;
+
+  .info {
+    font-size: 1rem;
+  }
+
+  .sampleDate {
+    font-style: italic;
+  }
+}
+
+.lineItemsContainer {
+  max-width: 60em;
+  margin-top: 2em;
 }
 
 .addOrderItemContainer {
-  border-top: 1px solid $light-grey;
-  padding-top: 2em;
   margin-top: 2em;
-
-  .search {
-    max-width: 15em;
-  }
-}
-
-.block {
-  background-color: $off-white;
-  margin: 2em;
-  padding: 2em;
-
-  & + .block {
-    margin-top: 0;
-  }
-
-  .dots {
-    flex: 1;
-    // border-bottom: 1px dotted black;
-    margin: 0 2em;
-  }
-
-  .group {
-    height: 2em;
-    align-items: flex-end;
-  }
-
-  .content {
-    width: 15em;
-  }
-
-  .title {
-    font-size: 1.5em;
-  }
-
-  .shippingContainer {
-    height: 2em;
-  }
-
-  .value {
-    font-size: 1.2em;
-    font-weight: 600;
-
-  }
-}
-
-.deliveryDateContainer{
-  margin-top: 1em;
-
-  .deliveryDate {
-    width: inherit;
-    margin-left: 1em;
-
-    font-size: 1.3em;
-    padding: 0.3em;
-    background: rgba( $off-white, 1 );
-    color: $dark-grey;
-    border: 3px solid rgba( #4C4C4C, 0.6 );
-  }
 }

@@ -1,0 +1,9 @@
+<span class="title">Current Repeating Orders:</span>
+<div class="content col stretch">
+  {{#each model as |orderTemplate index|}}
+    {{lists/order-templates-list/order-template-row
+        selectOrderTemplate=selectOrderTemplate
+        model=orderTemplate
+        index=(inc index)}}
+  {{/each}}
+</div>

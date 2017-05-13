@@ -1,0 +1,15 @@
+& {
+  cursor: pointer;
+  padding: 1em;
+  align-items: baseline;
+}
+
+&:nth-child(odd) {
+  background: $light-blue;
+}
+
+.index {
+  margin-right: 0.6em;
+  font-size: 1.2em;
+  font-weight: bold;
+}

@@ -1,5 +1,4 @@
 import Ember from 'ember';
-import activeState from "last-strawberry/constants/active-states";
 
 const MODEL_INCLUDES = [
 	"company",
@@ -22,6 +21,10 @@ export default Ember.Route.extend({
 			await orderTemplate.save();
 
 			this.transitionTo('standing-orders.order-template', orderTemplate.get('id'));
+		},
+
+		selectOrderTemplate(id) {
+			this.transitionTo('standing-orders.order-template', id);
 		}
 	}
 });
