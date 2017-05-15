@@ -1,11 +1,15 @@
 import Ember from 'ember';
 import computed from "ember-computed-decorators";
 
-const { filterBy } = Ember.computed;
+const { filterBy, sort } = Ember.computed;
 
 export default Ember.Component.extend({
   classNames: ['col', 'stretch'],
+
   validLineItems: filterBy('model.orderTemplateItems', 'isDeleted', false),
+
+  positionSort: ['position'],
+  sortedValidLineItems: sort('validLineItems', 'positionSort'),
 
   products: filterBy('items', 'isSold', true),
   activeProducts: filterBy('products', 'active', true),

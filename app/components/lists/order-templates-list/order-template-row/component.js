@@ -9,6 +9,7 @@ export default Ember.Component.extend({
   @computed('model.orderTemplateDays', 'model.frequency')
   label(days, frequency) {
     const daysFragment = days
+      .filter(otd => otd.get("enabled"))
       .map(otd => DAYS_OF_WEEK[otd.get("day")])
       .join('-');
 

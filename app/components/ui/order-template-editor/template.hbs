@@ -65,7 +65,7 @@
 
   <div class="lineItemsContainer">
     <div class="col">
-      {{#each validLineItems as |lineItem index|}}
+      {{#each sortedValidLineItems as |lineItem index|}}
         {{ui/order-template-editor/order-template-item-editor
             model=lineItem
             save=saveModel

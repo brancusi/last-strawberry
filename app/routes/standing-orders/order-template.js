@@ -43,7 +43,6 @@ export default Ember.Route.extend({
     },
 
 		dateSelected(model, date) {
-			console.log(moment(date).format("YYYY-MM-DD"));
 			model.set('startDate', moment(date).format("YYYY-MM-DD"));
 			model.save();
 		},
