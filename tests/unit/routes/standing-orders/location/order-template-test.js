@@ -1,6 +1,6 @@
 import { moduleFor, test } from 'ember-qunit';
 
-moduleFor('route:standing-orders/order-template', 'Unit | Route | standing orders/order template', {
+moduleFor('route:standing-orders/location/order-template', 'Unit | Route | standing orders/order template', {
   // Specify the other units that are required for this test.
   // needs: ['controller:foo']
 });

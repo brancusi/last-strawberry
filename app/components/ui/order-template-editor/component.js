@@ -20,9 +20,5 @@ export default Ember.Component.extend({
       .toArray()
       .filter(day => day.get('enabled'))
       .map(day => moment(date).add(freq-1, 'w').add(day.get('day'), 'd').format('ddd MM-DD'));
-  },
-
-  actions: {
-
   }
 });

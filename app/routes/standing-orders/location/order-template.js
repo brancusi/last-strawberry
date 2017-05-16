@@ -11,14 +11,16 @@ const MODEL_INCLUDES = [
 ];
 
 export default Ember.Route.extend({
-  setupController(controller) {
+  setupController(controller, model) {
     controller.set("items", this.store.peekAll("item"));
 
+		this.controllerFor('standing-orders.location').set("currentOrderTemplate", model);
+		
     this._super(...arguments);
   },
 
   model(params) {
-    return this.store.findRecord("order-template", params.id, {
+    return this.store.findRecord("order-template", params.order_template_id, {
       include:MODEL_INCLUDES.join(",")
     });
   },

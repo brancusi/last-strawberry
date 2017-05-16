@@ -1,19 +1,3 @@
-<div class="navContainer row">
-  <div class="row baseline">
-    <span class="company">{{model.location.company.name}}</span>
-    <span class="location">{{model.location.name}}</span>
-  </div>
-  {{ui/icon-button
-      class="delete"
-      label="Delete repeating order"
-      type="close"
-      size="1"
-      color=white
-      flat=true
-      backgroundColor=colors.SKY_BLUE
-      action=deleteOrderTemplate}}
-</div>
-
 <div class="contentContainer">
   <div class="row">
     <div class="col">
@@ -45,20 +29,11 @@
         </div>
       </div>
 
-      {{ui/day-of-week-selector
-          class="visitDays"
-          model=model.orderTemplateDays
-          change=(action onDaysChanged model)}}
-    </div>
-
-    <div class="col sampleDatesContainer">
-      <span class="info">Next projected dates:</span>
-      <div class="col">
-        {{#each sampleDates as |sampleDate index|}}
-          <div class="row">
-            <span class="sampleDate">{{inc index}}. {{sampleDate}}</span>
-          </div>
-        {{/each}}
+      <div class="dayOfWeekContainer">
+        {{ui/day-of-week-selector
+            class="visitDays"
+            model=model.orderTemplateDays
+            change=(action onDaysChanged model)}}
       </div>
     </div>
   </div>
@@ -85,5 +60,16 @@
       {{/power-select}}
     </div>
   </div>
+</div>
 
+<div class="bottomUIContainer">
+  {{ui/icon-button
+      class="delete"
+      label="Delete Repeating order"
+      type="close"
+      size="1.4"
+      color=white
+      flat=true
+      backgroundColor="red"
+      action=deleteOrderTemplate}}
 </div>

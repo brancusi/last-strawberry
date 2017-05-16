@@ -45,8 +45,9 @@ Router.map(function() {
   });
 
   this.route('standing-orders', function() {
-    this.route('location', {path:"/location/:id"});
-    this.route('order-template', {path:"/order-template/:id"});
+    this.route('location', {path:"/location/:location_id"}, function() {
+      this.route('order-template', {path:"/order-template/:order_template_id"});
+    });
   });
 });
 

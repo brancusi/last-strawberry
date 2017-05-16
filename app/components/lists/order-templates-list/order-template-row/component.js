@@ -5,8 +5,9 @@ const DAYS_OF_WEEK = ["m", "t", "w", "th", "f", "s", "su"];
 
 export default Ember.Component.extend({
   classNames:['row', 'stretch'],
+  classNameBindings: ["selected"],
 
-  @computed('model.orderTemplateDays', 'model.frequency')
+  @computed('model.orderTemplateDays.@each.{enabled}', 'model.frequency')
   label(days, frequency) {
     const daysFragment = days
       .filter(otd => otd.get("enabled"))

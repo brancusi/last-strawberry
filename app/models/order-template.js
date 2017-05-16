@@ -1,5 +1,6 @@
 import DS from 'ember-data';
-const { attr, belongsTo, hasMany } = DS;
+import { belongsTo, hasMany } from 'ember-data/relationships';
+const { attr } = DS;
 
 export default DS.Model.extend({
   location:           belongsTo('location'),

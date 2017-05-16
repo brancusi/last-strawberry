@@ -1,26 +1,15 @@
-.navContainer {
-  background: $dark-orange;
-  padding: 1em;
-  justify-content: space-between;
+& {
+  background: $light-blue;
+  min-width: 30em;
 }
 
 .contentContainer {
   padding: 2em;
 }
 
-.company {
-  font-size: 2em;
-  margin-right: 0.5em;
-}
-
-.location {
-  font-size: 1.4em;
-}
-
 .startDateContainer {
   margin: 0.5em 0;
   align-items: baseline;
-  font-size: 1.6em;
 
   .info {
     margin-right: 1em;
@@ -28,16 +17,14 @@
 
   input.datePicker {
     border: none;
-    font-family: 'Open Sans', serif;
     font-weight: 400;
     text-decoration: underline;
   }
 }
 
 .frequencyContainer {
-  margin-bottom: 0.5em;
+  margin-bottom: 1em;
   align-items: baseline;
-  font-size: 1.6em;
 
   .quantity {
     margin: 0 1em;
@@ -46,23 +33,8 @@
     font-weight: bold;
     border: none;
     border-bottom: 1px dashed;
-    font-family: 'Open Sans', serif;
     font-weight: 400;
     text-align: center;
-  }
-}
-
-.sampleDatesContainer {
-  background: $light-blue;
-  align-items: flex-start;
-  padding: 1em;
-
-  .info {
-    font-size: 1rem;
-  }
-
-  .sampleDate {
-    font-style: italic;
   }
 }
 
@@ -73,4 +45,8 @@
 
 .addOrderItemContainer {
   margin-top: 2em;
+}
+
+.bottomUIContainer {
+  padding: 2em;
 }

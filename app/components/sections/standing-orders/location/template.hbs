@@ -1,6 +1,7 @@
 <div class="navContainer row">
   <div class="row baseline">
     <span class="company">{{model.company.name}}</span>
+    <span class="spacer">-</span>
     <span class="location">{{model.name}}</span>
   </div>
   {{ui/icon-button
@@ -14,8 +15,13 @@
       action=(route-action "createOrderTemplate")}}
 </div>
 
-<div class="orderList col stretch">
-  {{lists/order-templates-list
-      selectOrderTemplate=selectOrderTemplate
-      model=model.orderTemplates}}
+<div class="row">
+  <div class="orderList col stretch">
+    {{lists/order-templates-list
+        currentOrderTemplate=currentOrderTemplate
+        selectOrderTemplate=selectOrderTemplate
+        model=model.orderTemplates}}
+  </div>
+
+  {{outlet}}
 </div>

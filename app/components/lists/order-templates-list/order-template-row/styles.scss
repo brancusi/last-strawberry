@@ -8,6 +8,11 @@
   background: $light-blue;
 }
 
+&.selected {
+  background: $sky-blue;
+  color: white;
+}
+
 .index {
   margin-right: 0.6em;
   font-size: 1.2em;
