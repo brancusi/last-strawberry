@@ -63,7 +63,7 @@ export default Ember.Controller.extend({
                 R.concat(R.concat([routeData], [headers]), [emptyArr])), R.concat(visitData, [emptyArr]));
           }, []);
 
-      this.get('excel').export(data, {sheetName: 'hey', fileName: 'test.xlsx'});
+      this.get('excel').export(data, {sheetName: 'MLVK - Sorted Visits', fileName: `${this.get('date')}.xlsx`});
     },
 
     onDateSelected(date) {
